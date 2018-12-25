@@ -31,4 +31,20 @@ class User extends Authenticatable
     public function vacation_requests(){
         return $this->hasMany('App\VacationRequests');
     }
+
+    public function availableFreeDays()
+    {
+        $total = 0;
+        foreach($this->vacation_requests->where('approved', 1) as $row) {
+            $start = new \Carbon\Carbon($row->start_date);
+            $end = new \Carbon\Carbon($row->end_date);
+            $difference = $start->diffInDaysFiltered(function(\Carbon\Carbon $date) {
+                return !$date->isWeekend();
+            }, $end);
+
+            return $difference;
+        }
+    }
+
+    
 }

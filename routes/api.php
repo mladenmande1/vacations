@@ -21,3 +21,5 @@ Route::get('/all/{type?}', 'ApiController@all');
 Route::post('/approve/{vacation_request_id}', 'ApiController@approve');
 Route::post('/decline/{vacation_request_id}', 'ApiController@decline');
 Route::post('/', 'ApiController@save');
+
+Route::get('/users', 'ApiController@users');

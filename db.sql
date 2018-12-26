@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 25, 2018 at 01:38 PM
+-- Generation Time: Dec 26, 2018 at 02:00 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
@@ -92,8 +92,9 @@ CREATE TABLE `vacation_requests` (
 --
 
 INSERT INTO `vacation_requests` (`id`, `user_id`, `start_date`, `end_date`, `approved`, `updated_at`, `created_at`) VALUES
-(1, 1, '2018-12-27', '2018-12-31', 0, '2018-12-25 12:24:06', '2018-12-25 13:17:46'),
-(2, 1, '2018-12-29', '2019-01-02', 1, NULL, '2018-12-25 13:17:46');
+(2, 1, '2019-01-07', '2019-01-12', 1, '2018-12-26 12:45:47', '2018-12-25 13:17:46'),
+(3, 1, '2019-01-15', '2019-01-18', 1, '2018-12-26 12:07:57', '2018-12-26 12:05:03'),
+(4, 1, '2019-02-01', '2019-02-12', 1, '2018-12-26 13:32:18', '2018-12-26 12:22:52');
 
 --
 -- Indexes for dumped tables
@@ -144,4 +145,4 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vacation_requests`
 --
 ALTER TABLE `vacation_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;

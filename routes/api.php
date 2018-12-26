@@ -13,13 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
+// Vacations
 Route::get('/all/{type?}', 'ApiController@all');
-Route::post('/approve/{vacation_request_id}', 'ApiController@approve');
-Route::post('/decline/{vacation_request_id}', 'ApiController@decline');
-Route::post('/', 'ApiController@save');
+Route::put('/approve/{vacation_request_id}', 'ApiController@approve');
+Route::put('/decline/{vacation_request_id}', 'ApiController@decline');
+Route::delete('/{vacation_request_id}', 'ApiController@delete');
+Route::post('/', 'ApiController@create');
 
+// Users
 Route::get('/users', 'ApiController@users');
+Route::get('/users/{user_id}', 'ApiController@user');

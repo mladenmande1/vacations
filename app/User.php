@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public $vacationDays = 20;
     /**
      * The attributes that are mass assignable.
      *
@@ -35,16 +36,17 @@ class User extends Authenticatable
     public function availableFreeDays()
     {
         $total = 0;
+
         foreach($this->vacation_requests->where('approved', 1) as $row) {
             $start = new \Carbon\Carbon($row->start_date);
             $end = new \Carbon\Carbon($row->end_date);
             $difference = $start->diffInDaysFiltered(function(\Carbon\Carbon $date) {
                 return !$date->isWeekend();
             }, $end);
-
-            return $difference;
+            $total += $difference;
         }
+        return $this->vacationDays - $total;
     }
 
-    
+
 }
